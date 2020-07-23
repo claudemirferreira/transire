@@ -1,3 +1,5 @@
+import { ProdutoModule } from './produto/produto.module';
+import { EntregadorModule } from './entregador/entregador.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +12,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EntregadorModule,
+    ProdutoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
