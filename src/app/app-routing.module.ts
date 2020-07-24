@@ -3,13 +3,17 @@ import { ListProdutoComponent } from './produto/list-produto/list-produto.compon
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [
-  {path : 'list-produto', component : ListProdutoComponent},
-  {path : 'list-entregador', component : ListEntregadorComponent}
+const appRoutes: Routes = [
+  { path: 'entregador',
+      loadChildren: 'app/entregador/entregador.module#EntregadorModule',
+  },
+  { path: 'produto',
+      loadChildren: 'app/produto/produto.module#ProdutoModule',
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
