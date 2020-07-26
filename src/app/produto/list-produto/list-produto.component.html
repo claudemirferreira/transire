@@ -1,10 +1,31 @@
-<p>list-produto works!</p>
-
 
 <ngx-ui-loader></ngx-ui-loader>
 
-<div class="example-container mat-elevation-z8">
-  <table mat-table [dataSource]="lista" matSort class="mat-elevation-z8" >
+<div class="content">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Listagem de Produtos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="informe o nome" value="Sushi" [(ngModel)]="filtroPaginacao.nome">
+      </mat-form-field>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="pesquisar()" ><mat-icon aria-hidden="false" aria-label="Pesquisar">search</mat-icon>Pesquisar</button>
+      <button mat-button (click)="pesquisar()" ><mat-icon aria-hidden="false" aria-label="Pesquisar">add_circle</mat-icon>Novo</button>
+
+    </mat-card-actions>
+  </mat-card>
+
+
+
+  <table mat-table [dataSource]="lista" matSort >
 
     <!-- Position Column -->
     <ng-container matColumnDef="id">

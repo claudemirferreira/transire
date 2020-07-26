@@ -8,6 +8,7 @@ import { ResponseApi } from '../../../app/shared/response-api';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-produto',
@@ -27,12 +28,13 @@ export class ListProdutoComponent implements OnInit {
   pageSizeOptions: number[] = [5, 10, 20,];
 
   constructor(private service : ProdutoService,
-    private ngxLoader: NgxUiLoaderService) { }
+    private ngxLoader: NgxUiLoaderService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.filtroPaginacao.page = 0;
     this.filtroPaginacao.size = 5;
-    this.filtroPaginacao.nome = '%%';
+    this.filtroPaginacao.nome = '';
 
     this.pesquisar();
     this.lista.paginator = this.paginator;
@@ -40,6 +42,7 @@ export class ListProdutoComponent implements OnInit {
   }
 
   pesquisar(){
+    console.log('############nome='+this.filtroPaginacao.nome)
     this.service.pesquisar(this.filtroPaginacao).subscribe((responseApi: ResponseApi) => {
       console.log(responseApi['content']);
       this.lista = new MatTableDataSource<Produto>(responseApi['content']);
@@ -49,6 +52,8 @@ export class ListProdutoComponent implements OnInit {
       this.filtroPaginacao.pageSize = responseApi['totalPages'];
       this.filtroPaginacao.pageIndex = responseApi['number'];
       this.filtroPaginacao.pageSize = responseApi['size'];
+      this.showSuccess();
+
       this.ngxLoader.stop();
     }, err => {
       console.log('################error');
@@ -67,6 +72,10 @@ export class ListProdutoComponent implements OnInit {
     if (setPageSizeOptionsInput) {
       this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
+  }
+
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
 
 }
