@@ -19,6 +19,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+
+import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   imports: [
@@ -40,6 +44,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSnackBarModule,
     MatMenuModule,
     MatPaginatorModule,
+    ToastrModule.forRoot({ positionClass: 'inline' }),
+    NgxUiLoaderModule,
+    ToastrModule,
+    ToastContainerModule,
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
   exports: [
@@ -62,6 +72,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSnackBarModule,
     MatMenuModule,
     MatPaginatorModule,
+    NgxUiLoaderModule,
+    ToastrModule,
+    ToastContainerModule,
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
 })

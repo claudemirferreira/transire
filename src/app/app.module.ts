@@ -7,22 +7,21 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-
-import { ToastrModule } from 'ngx-toastr';
-
 import { SharedModule } from './shared/shared.module';
 import { ProdutoModule } from './produto/produto.module';
 import { EntregadorModule } from './entregador/entregador.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CrudService } from './shared/crud-service';
 import { ProdutoService } from './produto/produto.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { CadastroProdutoComponent } from './produto/cadastro-produto/cadastro-produto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +34,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     SharedModule,
     NgxUiLoaderModule,
     ToastrModule.forRoot(),
+
+
   ],
   providers: [
     CrudService,
