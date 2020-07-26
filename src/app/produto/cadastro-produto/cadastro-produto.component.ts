@@ -30,7 +30,7 @@ export class CadastroProdutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.produto = new Produto();
+    //this.produto = new Produto();
     //this.createForm();
   }
 

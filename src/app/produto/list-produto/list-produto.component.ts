@@ -81,7 +81,13 @@ export class ListProdutoComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.produto = new Produto();
+    this.openDialogEditar(new Produto() );
+
+  }
+
+  openDialogEditar(produto : Produto): void {
+    this.produto = produto;
+    console.log(JSON.stringify(produto));
     const dialogRef = this.dialog.open(CadastroProdutoComponent, {
       width: '500px',
       data: this.produto

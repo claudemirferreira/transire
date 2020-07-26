@@ -26,9 +26,10 @@ export class CrudService<T> {
   }
 
   save(record: T) {
+    /*
     if (record['id']) {
       return this.update(record);
-    }
+    }*/
     return this.create(record);
   }
 
