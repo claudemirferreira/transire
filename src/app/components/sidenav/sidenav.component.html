@@ -1,0 +1,49 @@
+<mat-sidenav-container fullscreen>
+
+  <div class="example-sidenav-content"  color="primary">
+    <!--<router-outlet></router-outlet> -->
+   <mat-toolbar color="primary" role="heading">
+     <button mat-icon-button (click)="sidenav.toggle()">
+       <mat-icon>menu</mat-icon>
+     </button>
+     <button mat-button>Delivery</button>
+   </mat-toolbar>
+ </div>
+
+  <mat-sidenav  color="primary"  #sidenav  mode="side" class="example-sidenav" [ngStyle]="{ 'width.em': sidenavWidth }" opened="true" (mouseenter)="increase()"
+    (mouseleave)="decrease()">
+    <div class="logomain">Menu</div>
+
+    <mat-nav-list>
+      <mat-list-item routerLinkActive="active" routerLink="/list-entregador" >
+        <mat-icon mat-list-icon>two_wheeler</mat-icon>
+        <div fxFlex="10"></div>
+        <div class="sidenav-item">
+          <h5 class="lead">Entregador</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLinkActive="active" routerLink="/list-produto">
+        <mat-icon mat-list-icon>description</mat-icon>
+        <div fxFlex="10"></div>
+        <div class="sidenav-item">
+          <h5 class="lead">Produto</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="3" routerLinkActive="active">
+        <mat-icon mat-list-icon>local_phone</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5 class="lead">Contact</h5>
+        </div>
+      </mat-list-item>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

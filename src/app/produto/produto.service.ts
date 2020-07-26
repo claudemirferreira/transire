@@ -3,6 +3,7 @@ import { CrudService } from '../shared/crud-service';
 import { Produto } from '../produto/produto';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { FiltroPaginacao } from '../shared/filtro.paginacao';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProdutoService extends CrudService<Produto>{
 
   constructor(protected http: HttpClient) {
-    super(http, `${environment.API}produto`);
+    super(http, `${environment.API}produto/`);
   }
 
   loadByID(id) {
@@ -18,7 +19,12 @@ export class ProdutoService extends CrudService<Produto>{
   }
 
   listarTodos() {
-    return this.http.get(`${environment.API}produto`);
+    return this.http.get(`${this.API_URL}`);
+  }
+
+  pesquisar(filtro: FiltroPaginacao) {
+    console.log(`${this.API_URL}pesquisa`);
+    return this.http.post(`${this.API_URL}pesquisar`, filtro);
   }
 
 }
