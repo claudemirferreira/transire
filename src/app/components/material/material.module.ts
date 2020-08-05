@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { NgxCurrencyModule } from "ngx-currency";
 
 import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
@@ -50,6 +51,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     ToastContainerModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxCurrencyModule,
 
   ],
   exports: [
@@ -77,6 +79,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     ToastContainerModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxCurrencyModule,
 
   ],
 })

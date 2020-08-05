@@ -10,6 +10,9 @@ const appRoutes: Routes = [
   { path: 'produto',
       loadChildren: 'app/produto/produto.module#ProdutoModule',
   },
+  { path: 'pedido',
+      loadChildren: 'app/pedido/pedido.module#PedidoModule',
+  },
 ];
 
 @NgModule({

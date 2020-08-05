@@ -1,0 +1,30 @@
+<div style="margin-left:20px;">
+  <h3>Add New Shop</h3>
+  <div class="example-container">
+    <form [formGroup]="addShopFormGroup"  (ngSubmit)="onSubmit()" class="example-form">
+      <p>
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Shop Name</mat-label>
+            <input matInput [ngModel]="shopName" formControlName="shopName" >
+            <mat-error *ngIf="checkError('shopName', 'required')">Shop Name is required</mat-error>
+            <mat-error *ngIf="checkError('shopName', 'minlength')">Shop Name should be more than 5 characters</mat-error>
+            <mat-error *ngIf="checkError('shopName', 'maxlength')">Shop Name should be less than 20 characters</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Shop Address</mat-label>
+                  <textarea matInput  formControlName="shopAddress"></textarea>
+                  <mat-error *ngIf="checkError('shopAddress', 'required')">Shop Address is required</mat-error>
+                  <mat-error *ngIf="checkError('shopAddress', 'maxlength')">Shop Address should be less than 200 characters</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <img mat-card-sm-image >
+          </p>
+      <button type="submit" [disabled]="!addShopFormGroup.valid" >Submit</button>
+    </form>
+    </div>
+  </div>
+
+

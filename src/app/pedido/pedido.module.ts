@@ -19,19 +19,17 @@ export const customCurrencyMaskConfig = {
     inputMode: CurrencyMaskInputMode.FINANCIAL
 };
 
-import { ProdutoRoutingModule } from './produto-routing.module';
-import { ListProdutoComponent } from './list-produto/list-produto.component';
-import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
-
+import { PedidoRoutingModule } from './pedido-routing.module';
+import { ListPedidoComponent } from './list-pedido/list-pedido.component';
 
 @NgModule({
-  declarations: [ListProdutoComponent, CadastroProdutoComponent],
+  declarations: [ListPedidoComponent],
   imports: [
     CommonModule,
-    ProdutoRoutingModule,
+    PedidoRoutingModule,
     MaterialModule,
     FormsModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ]
 })
-export class ProdutoModule { }
+export class PedidoModule { }

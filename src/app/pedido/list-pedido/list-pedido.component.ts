@@ -1,27 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-
-import { ProdutoService } from '../produto.service';
-import { FiltroPaginacao } from '../../shared/filtro.paginacao';
-import { Produto } from '../produto';
-import { CadastroProdutoComponent } from '../cadastro-produto/cadastro-produto.component';
-
-import { ResponseApi } from '../../../app/shared/response-api';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { PedidoService } from '../pedido.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ToastrService } from 'ngx-toastr';
+import { Pedido } from '../pedido';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { FiltroPaginacao } from 'src/app/shared/filtro.paginacao';
 import { MatDialog } from '@angular/material/dialog';
+import { ResponseApi } from 'src/app/shared/response-api';
 
 @Component({
-  selector: 'app-list-produto',
-  templateUrl: './list-produto.component.html',
-  styleUrls: ['./list-produto.component.css']
+  selector: 'app-list-pedido',
+  templateUrl: './list-pedido.component.html',
+  styleUrls: ['./list-pedido.component.css'],
 })
-export class ListProdutoComponent implements OnInit {
+export class ListPedidoComponent implements OnInit {
 
-  lista = new MatTableDataSource<Produto>();
-  produto : Produto;
+  lista = new MatTableDataSource<Pedido>();
+  pedido : Pedido;
 
   filtroPaginacao = new FiltroPaginacao();
   displayedColumns = ['id', 'nome', 'valor', 'acoes'];
@@ -30,7 +27,7 @@ export class ListProdutoComponent implements OnInit {
 
   pageSizeOptions: number[] = [5, 10, 20,];
 
-  constructor(private service : ProdutoService,
+  constructor(private service : PedidoService,
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrService,
     public dialog: MatDialog) { }
@@ -50,7 +47,7 @@ export class ListProdutoComponent implements OnInit {
     this.ngxLoader.start();
     this.service.pesquisar(this.filtroPaginacao).subscribe((responseApi: ResponseApi) => {
       console.log(responseApi['content']);
-      this.lista = new MatTableDataSource<Produto>(responseApi['content']);
+      this.lista = new MatTableDataSource<Pedido>(responseApi['content']);
       this.lista.sort = this.sort;
 
       this.filtroPaginacao.totalElements = responseApi['totalElements'];
@@ -80,26 +77,9 @@ export class ListProdutoComponent implements OnInit {
     this.toastr.success('Operação realizada com sucesso!', 'Sucesso');
   }
 
-  openDialog(): void {
-    this.openDialogEditar(new Produto() );
-  }
 
-  openDialogEditar(produto : Produto): void {
-    this.produto = produto;
-    console.log(JSON.stringify(produto));
-    const dialogRef = this.dialog.open(CadastroProdutoComponent, {
-      width: '500px',
-      data: this.produto
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.produto = result;
-    });
-  }
-
-  delete(produto: Produto) {
-    return this.service.remove(produto.id)
+  delete(pedido: Pedido) {
+    return this.service.remove(pedido.id)
       .subscribe(() => {
         console.log('saved');
         this.showSuccess();

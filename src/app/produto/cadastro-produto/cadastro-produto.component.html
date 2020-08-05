@@ -1,32 +1,16 @@
-<div class="content">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Cadastro de Produtos</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+<h2 class="mat-title">Sign-up form:</h2>
+<form class="example-form" [formGroup]='formGroup'>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Nome" formControlName='nome' >
+  </mat-form-field>
+  <mat-form-field>
+    <input type="number" matInput placeholder="Valor" formControlName='valor'>
+  </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Nome</mat-label>
-        <input matInput placeholder="informe o nome" [(ngModel)]="produto.nome">
-      </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Descrição</mat-label>
-        <input matInput placeholder="informe a descrição" [(ngModel)]="produto.descricao">
-      </mat-form-field>
+  <div class="state">
+    Do passwords match?
+    <strong>{{!formGroup.hasError('passwordsDoNotMatch')}}</strong>
+  </div>
+</form>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Valor</mat-label>
-        <input matInput placeholder="informe o valor" [(ngModel)]="produto.valor ">
-      </mat-form-field>
-
-    </mat-card-content>
-
-    <mat-card-actions>
-      <button mat-button (click)="salvar()" ><mat-icon aria-hidden="false" aria-label="Pesquisar">done_outline</mat-icon>Salvar</button>
-    </mat-card-actions>
-
-  </mat-card>
-
-</div>

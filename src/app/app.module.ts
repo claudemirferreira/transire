@@ -9,12 +9,15 @@ import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
 import { ProdutoModule } from './produto/produto.module';
+import { PedidoModule } from './pedido/pedido.module';
 import { EntregadorModule } from './entregador/entregador.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CrudService } from './shared/crud-service';
 import { ProdutoService } from './produto/produto.service';
+import { PedidoService } from './pedido/pedido.service';
+
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CadastroProdutoComponent } from './produto/cadastro-produto/cadastro-produto.component';
 
@@ -31,6 +34,7 @@ import { CadastroProdutoComponent } from './produto/cadastro-produto/cadastro-pr
     MaterialModule,
     EntregadorModule,
     ProdutoModule,
+    PedidoModule,
     SharedModule,
     NgxUiLoaderModule,
     ToastrModule.forRoot(),
@@ -40,6 +44,7 @@ import { CadastroProdutoComponent } from './produto/cadastro-produto/cadastro-pr
   providers: [
     CrudService,
     ProdutoService,
+    PedidoService,
   ],
   bootstrap: [AppComponent]
 })
