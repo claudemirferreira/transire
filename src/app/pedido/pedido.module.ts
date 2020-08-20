@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { MaterialModule } from '../components/material/material.module';
 import { CurrencyMaskInputMode, NgxCurrencyModule } from "ngx-currency";
 
@@ -21,14 +23,17 @@ export const customCurrencyMaskConfig = {
 
 import { PedidoRoutingModule } from './pedido-routing.module';
 import { ListPedidoComponent } from './list-pedido/list-pedido.component';
+import { NewPedidoComponent } from './new-pedido/new-pedido.component';
 
 @NgModule({
-  declarations: [ListPedidoComponent],
+  declarations: [ListPedidoComponent, NewPedidoComponent],
   imports: [
     CommonModule,
     PedidoRoutingModule,
     MaterialModule,
     FormsModule,
+    FlexLayoutModule,
+    AutocompleteLibModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ]
 })

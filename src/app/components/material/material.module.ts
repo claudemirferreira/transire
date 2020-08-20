@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -19,6 +21,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { NgxCurrencyModule } from "ngx-currency";
 
@@ -45,6 +49,10 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     MatSnackBarModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatGridListModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    NgxMatSelectSearchModule,
     ToastrModule.forRoot({ positionClass: 'inline' }),
     NgxUiLoaderModule,
     ToastrModule,
@@ -52,6 +60,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     FormsModule,
     ReactiveFormsModule,
     NgxCurrencyModule,
+
 
   ],
   exports: [
@@ -74,7 +83,11 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     MatSnackBarModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatFormFieldModule,
+    NgxMatSelectSearchModule,
     NgxUiLoaderModule,
+    MatGridListModule,
+    MatAutocompleteModule,
     ToastrModule,
     ToastContainerModule,
     FormsModule,

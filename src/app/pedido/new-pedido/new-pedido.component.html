@@ -1,0 +1,23 @@
+<div class="container" *ngIf="!post; else forminfo" novalidate>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Enter Hotel Name</mat-label>
+      <input type="text" aria-label="Number" matInput [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedclient($event)">
+          <mat-option *ngFor="let option of list; let i = index" [value]="option">
+              {{ option.nome }}
+            </mat-option>
+      </mat-autocomplete>
+      <mat-icon matSuffix>location_on</mat-icon>
+    </mat-form-field>
+
+
+  </form>
+</div>
+
+<ng-template #forminfo>
+  <div class="container">
+    {{ post | json }}
+  </div>
+</ng-template>

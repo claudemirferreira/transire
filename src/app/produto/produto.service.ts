@@ -19,6 +19,7 @@ export class ProdutoService extends CrudService<Produto>{
   }
 
   listarTodos() {
+    console.log('listarTodos');
     return this.http.get(`${this.API_URL}`);
   }
 
