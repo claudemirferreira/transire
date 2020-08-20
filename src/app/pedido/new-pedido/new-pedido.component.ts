@@ -1,3 +1,4 @@
+import { PedidoProduto } from '../pedido-produto';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProdutoService } from 'src/app/produto/produto.service';
 import { FormControl, FormBuilder } from '@angular/forms';
@@ -27,18 +28,22 @@ export class NewPedidoComponent implements OnInit {
   protected list: Produto[] ;
 
   /** control for the selected bank */
-  public bankCtrl: FormControl = new FormControl();
+  public produtoCtrl: FormControl = new FormControl();
 
   /** control for the MatSelect filter keyword */
-  public bankFilterCtrl: FormControl = new FormControl();
+  public produtoFilterCtrl: FormControl = new FormControl();
 
   /** list of banks filtered by search keyword */
-  public filteredBanks: ReplaySubject<Produto[]> = new ReplaySubject<Produto[]>(1);
+  public filteredProdutos: ReplaySubject<Produto[]> = new ReplaySubject<Produto[]>(1);
 
   @ViewChild('singleSelect', { static: true }) singleSelect: MatSelect;
 
   /** Subject that emits when the component has been destroyed. */
   protected _onDestroy = new Subject<void>();
+
+  //
+  pedidoProduto : PedidoProduto;
+  pedidoProdutos : PedidoProduto[];
 
 
   constructor(private produtoService : ProdutoService,
@@ -48,20 +53,22 @@ export class NewPedidoComponent implements OnInit {
 
   init(){
     // set initial selection
-    this.bankCtrl.setValue(this.list[6]);
+    this.produtoCtrl.setValue(this.list[6]);
 
     // load the initial bank list
-    this.filteredBanks.next(this.list.slice());
+    this.filteredProdutos.next(this.list.slice());
 
     // listen for search field value changes
-    this.bankFilterCtrl.valueChanges
+    this.produtoFilterCtrl.valueChanges
       .pipe(takeUntil(this._onDestroy))
       .subscribe(() => {
-        this.filterBanks();
+        this.filterProdutos();
       });
   }
 
   ngOnInit() {
+    this.pedidoProduto = new PedidoProduto();
+    this.pedidoProdutos = [];
   }
 
   ngAfterViewInit() {
@@ -77,7 +84,7 @@ export class NewPedidoComponent implements OnInit {
    * Sets the initial value after the filteredBanks are loaded initially
    */
   protected setInitialValue() {
-    this.filteredBanks
+    this.filteredProdutos
       .pipe(take(1), takeUntil(this._onDestroy))
       .subscribe(() => {
         // setting the compareWith property to a comparison function
@@ -89,21 +96,21 @@ export class NewPedidoComponent implements OnInit {
       });
   }
 
-  protected filterBanks() {
+  protected filterProdutos() {
     if (!this.list) {
       return;
     }
     // get the search keyword
-    let search = this.bankFilterCtrl.value;
+    let search = this.produtoFilterCtrl.value;
     if (!search) {
-      this.filteredBanks.next(this.list.slice());
+      this.filteredProdutos.next(this.list.slice());
       return;
     } else {
       search = search.toLowerCase();
     }
     // filter the banks
-    this.filteredBanks.next(
-      this.list.filter(bank => bank.nome.toLowerCase().indexOf(search) > -1)
+    this.filteredProdutos.next(
+      this.list.filter(produto => produto.nome.toLowerCase().indexOf(search) > -1)
     );
   }
 
@@ -115,6 +122,12 @@ export class NewPedidoComponent implements OnInit {
       this.init();
       //this.ngxLoader.stop();
     });
+  }
+
+  incluir(){
+    //this.pedidoProduto.produto = this.produtoCtrl;
+    console.log()
+
   }
 
 
