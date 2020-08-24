@@ -1,25 +1,30 @@
-<div style="margin-left:20px;">
+<div style="margin-left: 20px;">
   <h3>Cadastro de Produto.</h3>
   <div class="example-container">
-    <form [formGroup]="formGroup"  (ngSubmit)="onSubmit()" class="example-form">
-      <p>
-          <mat-form-field appearance="fill">
-            <mat-label>Nome</mat-label>
-            <input matInput [ngModel]="produto.nome" formControlName="nome" appearance="fill">
-          </mat-form-field>
-        </p>
-        <p>
-            <mat-form-field appearance="fill">
-              <mat-label>Descrição</mat-label>
-                  <input matInput  formControlName="descricao" [ngModel]="produto.descricao" appearance="fill">
-            </mat-form-field>
-          </p>
-          <p>
-            <img mat-card-sm-image >
-          </p>
-      <button type="submit" [disabled]="!formGroup.valid" >Submit</button>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="example-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input
+          matInput
+          [ngModel]="produto.nome"
+          formControlName="nome"
+          appearance="fill"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Descrição</mat-label>
+        <input
+          matInput
+          formControlName="descricao"
+          [ngModel]="produto.descricao"
+          appearance="fill"
+        />
+      </mat-form-field>
+
+      <button mat-raised-button >
+        <mat-icon>delete_forever</mat-icon>Excluir
+      </button>
     </form>
-    </div>
   </div>
-
-
+</div>
