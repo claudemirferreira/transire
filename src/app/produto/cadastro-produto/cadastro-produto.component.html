@@ -1,16 +1,25 @@
-<h2 class="mat-title">Sign-up form:</h2>
-<form class="example-form" [formGroup]='formGroup'>
-  <mat-form-field>
-    <input type="text" matInput placeholder="Nome" formControlName='nome' >
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" matInput placeholder="Valor" formControlName='valor'>
-  </mat-form-field>
-
-
-  <div class="state">
-    Do passwords match?
-    <strong>{{!formGroup.hasError('passwordsDoNotMatch')}}</strong>
+<div style="margin-left:20px;">
+  <h3>Cadastro de Produto.</h3>
+  <div class="example-container">
+    <form [formGroup]="formGroup"  (ngSubmit)="onSubmit()" class="example-form">
+      <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput [ngModel]="produto.nome" formControlName="nome" appearance="fill">
+          </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Descrição</mat-label>
+                  <input matInput  formControlName="descricao" [ngModel]="produto.descricao" appearance="fill">
+            </mat-form-field>
+          </p>
+          <p>
+            <img mat-card-sm-image >
+          </p>
+      <button type="submit" [disabled]="!formGroup.valid" >Submit</button>
+    </form>
+    </div>
   </div>
-</form>
+
 
