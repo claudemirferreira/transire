@@ -23,7 +23,6 @@ class CrossFieldErrorMatcher implements ErrorStateMatcher {
 })
 export class CadastroProdutoComponent implements OnInit {
 
-
   formGroup: FormGroup;
   errorMatcher = new CrossFieldErrorMatcher();
 
@@ -41,8 +40,6 @@ export class CadastroProdutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.produto = produto;
-    this.produto.nome ='CLAUDEMIR';
     console.log(JSON.stringify(this.produto));
     this.initForm();
   }

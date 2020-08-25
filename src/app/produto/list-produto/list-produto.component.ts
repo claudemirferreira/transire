@@ -88,7 +88,7 @@ export class ListProdutoComponent implements OnInit {
     this.produto = produto;
     console.log(JSON.stringify(produto));
     const dialogRef = this.dialog.open(CadastroProdutoComponent, {
-      width: '500px',
+      width: '650px',
       data: this.produto
     });
 
@@ -106,7 +106,7 @@ export class ListProdutoComponent implements OnInit {
         this.pesquisar();
       },
         error => {
-          alert('Erro, existe rotina associada a este perfil');
+          alert('Erro, existem pedido associado ao produto');
           console.log(JSON.stringify(error));
         }
 

@@ -12,6 +12,8 @@ export class Produto {
 
   constructor(){
     this.quantidade = 1;
+    this.nome = '';
+    this.descricao = '';
   }
 
 }
