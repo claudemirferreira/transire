@@ -80,8 +80,8 @@ export class ListProdutoComponent implements OnInit {
     this.toastr.success('Operação realizada com sucesso!', 'Sucesso');
   }
 
-  openDialog(): void {
-    this.openDialogEditar(new Produto() );
+  openDialog(produto): void {
+    this.openDialogEditar(produto );
   }
 
   openDialogEditar(produto : Produto): void {
