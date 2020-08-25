@@ -42,7 +42,7 @@ export class NewPedidoComponent implements OnInit {
     });
   }
 
-  buscarInventario() {
+  salvar() {
     this.service.save(this.pedido).subscribe(
       (data: Pedido) => {
         this.pedido = data;
