@@ -3,7 +3,9 @@ export class Pedido {
 
   id : number;
   nome : string;
-  descricao: string;
+  endereco: string;
+  telefone: string;
   valor : number;
+  tipoPedido: string;
 
 }

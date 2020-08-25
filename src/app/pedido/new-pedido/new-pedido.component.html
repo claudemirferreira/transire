@@ -1,47 +1,43 @@
-<div class="container" *ngIf="!post; else forminfo" novalidate>
-  <mat-card>
-    <mat-card-content>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Cadastro de Pedido</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
       <mat-form-field appearance="fill">
-        <mat-select
-          [formControl]="produtoCtrl"
-          placeholder="Produto"
-          #singleSelect
-        >
-          <mat-option>
-            <ngx-mat-select-search
-              [formControl]="produtoFilterCtrl"
-            ></ngx-mat-select-search>
-          </mat-option>
-
-          <mat-option
-            *ngFor="let produto of filteredProdutos | async"
-            [value]="produto"
-          >
-            {{ produto.nome }}
-          </mat-option>
+        <mat-label>Tipo de Pedido</mat-label>
+        <mat-select [(ngModel)]="pedido.tipoPedido">
+          <mat-option *ngFor="let option of listTipo" [value]="option.id">{{ option.nome }}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
-        <mat-label>Quantidade </mat-label>
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="nome" [ngModel]="pedido.nome" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Telefone</mat-label>
         <input
           matInput
-          type="number"
-          placeholder="Quantidade"
-          min="10"
-          [(ngModel)]="pedidoProduto.quantidade"
+          placeholder="telefone"
+          [ngModel]="pedido.telefone"
         />
       </mat-form-field>
-    </mat-card-content>
 
-    <mat-card-actions>
-      <button mat-raised-button color="primary">Incluir</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+      <mat-form-field appearance="fill">
+        <mat-label>Endereço</mat-label>
+        <textarea
+          matInput
+          [ngModel]="pedido.endereco"
+          placeholder="Endereço"
+        ></textarea>
+      </mat-form-field>
 
-<ng-template #forminfo>
-  <div class="container">
-    {{ post | json }}
-  </div>
-</ng-template>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="savar()">
+      <mat-icon>check_circle</mat-icon>Salvar
+    </button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>

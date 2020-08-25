@@ -25,7 +25,6 @@
     "angular-ng-autocomplete": "^2.0.1",
     "ng2-pdfjs-viewer": "^5.0.7",
     "ngx-currency": "^2.3.3",
-    "ngx-mat-select-search": "^3.0.3",
     "ngx-toastr": "^13.0.0",
     "ngx-ui-loader": "^9.1.1",
     "rxjs": "~6.5.5",

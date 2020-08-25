@@ -1,38 +1,101 @@
-<div class="flex-container">
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-subtitle>Cadastro de Pedido</mat-card-subtitle>
+  </mat-card-header>
 
-  <form class="example-form">
-    <mat-form-field class="form-element">
-      <input matInput placeholder="Emailaddress" formControlName="quantidade">
-      <mat-error *ngIf="!formGroup.controls['quantidade'].valid && formGroup.controls['quantidade'].touched">
-        {{ getErrorEmail() }}
-      </mat-error>
-    </mat-form-field>
+  <mat-card-content>
+    <section class="container row">
+      <div class="item">
+        <mat-label>Produto</mat-label>
+        <ng-autocomplete
+          appearance="fill"
+          [data]="list"
+          [searchKeyword]="keyword"
+          placeHolder="Produto"
+          (selected)="selectEvent($event)"
+          (inputChanged)="onChangeSearch($event)"
+          (inputFocused)="onFocused($event)"
+          [itemTemplate]="itemTemplate"
+          [notFoundTemplate]="notFoundTemplate"
+        >
+        </ng-autocomplete>
 
+        <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.nome" appearance="fill"></a>
+        </ng-template>
 
-  </form>
+        <ng-template #notFoundTemplate let-notFound>
+          <div [innerHTML]="notFound" appearance="fill"></div>
+        </ng-template>
+      </div>
+      <div class="item">
+        <mat-form-field>
+          <mat-label>Quantidade</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="produto.quantidade"
+            (change)="atualizarTotal()"
+          />
+        </mat-form-field>
+      </div>
+      <div class="item">
+        <mat-form-field>
+          <mat-label>Total</mat-label>
+          <input matInput type="number" [(ngModel)]="produto.total" />
+        </mat-form-field>
+      </div>
+    </section>
+  </mat-card-content>
 
-  <div>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="incluir()">
+      Incluir
+    </button>
+  </mat-card-actions>
+</mat-card>
+<div>
+  <mat-table [dataSource]="datasource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+    </ng-container>
 
-    <mat-form-field class="example-form">
-      <mat-label>Quantidade</mat-label>
-      <ng-autocomplete
-        [data]="list"
-        [searchKeyword]="keyword"
-        (selected)="selectEvent($event)"
-        (inputChanged)="onChangeSearch($event)"
-        (inputFocused)="onFocused($event)"
-        [itemTemplate]="itemTemplate"
-        [notFoundTemplate]="notFoundTemplate"
-      >
-      </ng-autocomplete>
+    <!-- Position Column -->
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef> Nome. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.nome }} </mat-cell>
+    </ng-container>
 
-      <ng-template #itemTemplate let-item>
-        <a [innerHTML]="item.nome"></a>
-      </ng-template>
+    <!-- Name Column -->
+    <ng-container matColumnDef="quantidade">
+      <mat-header-cell *matHeaderCellDef> quantidade </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.quantidade }} </mat-cell>
+    </ng-container>
 
-      <ng-template #notFoundTemplate let-notFound>
-        <div [innerHTML]="notFound"></div>
-      </ng-template>
-    </mat-form-field>
-  </div>
+    <!-- Name Column -->
+    <ng-container matColumnDef="total">
+      <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.total }} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="acao">
+      <th mat-header-cell *matHeaderCellDef>Ação</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button><mat-icon>edit</mat-icon>Editar</button>&nbsp;
+        <button mat-raised-button (click)="delete(element)">
+          <mat-icon>delete_forever</mat-icon>Excluir
+        </button>
+      </td>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
+
+<div class="container">
+  {{ listProduto | json }}
 </div>
