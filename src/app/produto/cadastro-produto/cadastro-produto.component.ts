@@ -41,6 +41,8 @@ export class CadastroProdutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //this.produto = produto;
+    this.produto.nome ='CLAUDEMIR';
     console.log(JSON.stringify(this.produto));
     this.initForm();
   }
@@ -68,16 +70,10 @@ export class CadastroProdutoComponent implements OnInit {
     this.formGroup = this.fb.group({
       nome: '',
       valor: '',
-      verifyPassword: ''
+      descricao: ''
     }, {
-      validator: this.passwordValidator
+
     })
   }
-
-  passwordValidator(form: FormGroup) {
-    const condition = form.get('password').value !== form.get('verifyPassword').value;
-    return condition ? { passwordsDoNotMatch: true} : null;
-  }
-
 
 }
