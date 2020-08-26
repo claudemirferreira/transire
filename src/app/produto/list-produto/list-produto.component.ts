@@ -106,7 +106,7 @@ export class ListProdutoComponent implements OnInit {
         this.pesquisar();
       },
         error => {
-          alert('Erro, existem pedido associado ao produto');
+          this.toastr.error('Ocorreu um error!', 'Error');
           console.log(JSON.stringify(error));
         }
 
