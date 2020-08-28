@@ -15,7 +15,7 @@ import { Item } from '../item';
 })
 export class ItensComponent implements OnInit {
   lista = new MatTableDataSource<Item>();
-  displayedColumns = ['id', 'nome','quantidade', 'valor', 'acao'];
+  displayedColumns = ['nome','quantidade', 'valor', 'acao'];
 
   constructor(
     private service : ItensService,
@@ -38,6 +38,23 @@ export class ItensComponent implements OnInit {
     }, err => {
       console.log('################error');
     });
+  }
+
+
+
+  delete(item: Item) {
+    return this.service.remove(item.id)
+      .subscribe(() => {
+        console.log('saved');
+        this.toastr.success('Operação realizada com sucesso!', 'Sucesso');
+        this.findByProduto();
+      },
+        error => {
+          this.toastr.error('Ocorreu um error!', 'Error');
+          console.log(JSON.stringify(error));
+        }
+
+      );
   }
 
 }
