@@ -1,0 +1,43 @@
+<p>Itens do pedido</p>
+
+<div>
+  <mat-table [dataSource]="lista" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef> nome. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.nome }} </mat-cell>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="valor">
+      <mat-header-cell *matHeaderCellDef> valor. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.valor }} </mat-cell>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="quantidade">
+      <mat-header-cell *matHeaderCellDef> quantidade. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.quantidade }} </mat-cell>
+    </ng-container>
+
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="acao">
+      <th mat-header-cell *matHeaderCellDef>Ação</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button><mat-icon>edit</mat-icon>Editar</button>&nbsp;
+
+      </td>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

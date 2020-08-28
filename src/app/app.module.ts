@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CrudService } from './shared/crud-service';
 import { ProdutoService } from './produto/produto.service';
 import { PedidoService } from './pedido/pedido.service';
+import { ItensService } from './pedido/itens.service';
 
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
@@ -52,6 +53,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     CrudService,
     ProdutoService,
     PedidoService,
+    ItensService,
   ],
   bootstrap: [AppComponent]
 })
