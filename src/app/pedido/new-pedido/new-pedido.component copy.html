@@ -28,23 +28,6 @@
           <div [innerHTML]="notFound" appearance="fill"></div>
         </ng-template>
       </div>
-      <div class="item">
-        <mat-form-field>
-          <mat-label>Quantidade</mat-label>
-          <input
-            matInput
-            type="number"
-            [(ngModel)]="produto.quantidade"
-            (change)="atualizarTotal()"
-          />
-        </mat-form-field>
-      </div>
-      <div class="item">
-        <mat-form-field>
-          <mat-label>Total</mat-label>
-          <input matInput type="number" [(ngModel)]="produto.total" />
-        </mat-form-field>
-      </div>
     </section>
   </mat-card-content>
 

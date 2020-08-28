@@ -1,4 +1,59 @@
-<p>Itens do pedido</p>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-subtitle>Cadastro de Pedido</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <section class="container row">
+      <div class="item">
+        <mat-label>Produto</mat-label>
+        <ng-autocomplete
+          appearance="fill"
+          [data]="listProduto"
+          [searchKeyword]="keyword"
+          placeHolder="Produto"
+          (selected)="selectEvent($event)"
+          (inputChanged)="onChangeSearch($event)"
+          (inputFocused)="onFocused($event)"
+          [itemTemplate]="itemTemplate"
+          [notFoundTemplate]="notFoundTemplate"
+        >
+        </ng-autocomplete>
+
+        <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.nome" appearance="fill"></a>
+        </ng-template>
+
+        <ng-template #notFoundTemplate let-notFound>
+          <div [innerHTML]="notFound" appearance="fill"></div>
+        </ng-template>
+      </div>
+      <div class="item">
+        <mat-form-field>
+          <mat-label>Quantidade</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="produto.quantidade"
+            (change)="atualizarTotal()"
+          />
+        </mat-form-field>
+      </div>
+      <div class="item">
+        <mat-form-field>
+          <mat-label>Total</mat-label>
+          <input matInput type="number" [(ngModel)]="produto.total" />
+        </mat-form-field>
+      </div>
+    </section>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="incluir()">
+      Incluir
+    </button>
+  </mat-card-actions>
+</mat-card>
 
 <div>
   <mat-table [dataSource]="lista" class="mat-elevation-z8">
