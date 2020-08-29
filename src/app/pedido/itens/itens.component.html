@@ -35,14 +35,14 @@
             matInput
             type="number"
             [(ngModel)]="produto.quantidade"
-            (change)="atualizarTotal()"
+            (change)="atualizarTotal(produto)"
           />
         </mat-form-field>
       </div>
       <div class="item">
         <mat-form-field>
           <mat-label>Total</mat-label>
-          <input matInput type="number" [(ngModel)]="produto.total" />
+          <input matInput type="number" [(ngModel)]="produto.total" readonly="true" />
         </mat-form-field>
       </div>
     </section>

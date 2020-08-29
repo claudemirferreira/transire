@@ -53,7 +53,7 @@ export class NewPedidoComponent implements OnInit {
 
   //intens
   openDialog(): void {
-    this.pedido.id = 1;
+    this.pedido.id = 3;
     const dialogRef = this.dialog.open(ItensComponent, {
       width: '650px',
       data: this.pedido

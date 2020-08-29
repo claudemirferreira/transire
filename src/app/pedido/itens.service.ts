@@ -1,3 +1,5 @@
+import { take } from 'rxjs/operators';
+import { Item } from './item';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -23,6 +25,10 @@ export class ItensService extends CrudService<PedidoProduto>{
 
   findByProduto(idPedido) {
     return this.http.get(`${this.API_URL}pedido/${idPedido}`);
+  }
+
+  saveItem(record: Item) {
+    return this.http.post(`${this.API_URL}item/`, record).pipe(take(1));
   }
 
 }
