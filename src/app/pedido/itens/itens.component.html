@@ -38,8 +38,7 @@
             (change)="atualizarTotal(produto)"
           />
         </mat-form-field>
-      </div>
-      <div class="item">
+
         <mat-form-field>
           <mat-label>Total</mat-label>
           <input matInput type="number" [(ngModel)]="produto.total" readonly="true" />
@@ -55,8 +54,9 @@
   </mat-card-actions>
 </mat-card>
 
-<div>
-  <mat-table [dataSource]="lista" class="mat-elevation-z8">
+<div class="example-table-container">
+  <cdk-virtual-scroll-viewport [itemSize]="5">
+  <mat-table [dataSource]="lista" class="mat-elevation-z8" class="example-table">
 
     <!-- Position Column -->
     <ng-container matColumnDef="nome">
@@ -89,4 +89,5 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
+</cdk-virtual-scroll-viewport>
 </div>

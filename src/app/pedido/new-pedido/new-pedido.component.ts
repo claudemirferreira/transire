@@ -52,10 +52,12 @@ export class NewPedidoComponent implements OnInit {
   }
 
   //intens
+  //max-height: '400px',
   openDialog(): void {
     this.pedido.id = 3;
     const dialogRef = this.dialog.open(ItensComponent, {
       width: '650px',
+      height: '550px',
       data: this.pedido
     });
 

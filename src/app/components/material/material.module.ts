@@ -23,6 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { NgxCurrencyModule } from "ngx-currency";
 
@@ -60,6 +61,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     FormsModule,
     ReactiveFormsModule,
     NgxCurrencyModule,
+    ScrollingModule,
 
 
   ],
@@ -93,6 +95,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     FormsModule,
     ReactiveFormsModule,
     NgxCurrencyModule,
+    ScrollingModule,
 
   ],
 })
