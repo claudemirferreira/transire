@@ -6,6 +6,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { PedidoService } from '../pedido.service';
 import { ItensComponent } from '../itens/itens.component';
 import { MatDialog } from '@angular/material/dialog';
+import { FecharComponent } from '../fechar/fechar.component';
 
 @Component({
   selector: 'app-new-pedido',
@@ -52,8 +53,7 @@ export class NewPedidoComponent implements OnInit {
   }
 
   //intens
-  //max-height: '400px',
-  openDialog(): void {
+  openDialogItem(): void {
     this.pedido.id = 3;
     const dialogRef = this.dialog.open(ItensComponent, {
       width: '650px',
@@ -63,7 +63,22 @@ export class NewPedidoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.pedido = result;
+      //this.pedido = result;
+    });
+  }
+
+
+  openDialogFechar(): void {
+    this.pedido.id = 3;
+    const dialogRef = this.dialog.open(FecharComponent, {
+      width: '650px',
+      height: '550px',
+      data: this.pedido
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.pedido = result;
     });
   }
 

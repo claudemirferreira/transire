@@ -25,9 +25,10 @@ import { PedidoRoutingModule } from './pedido-routing.module';
 import { ListPedidoComponent } from './list-pedido/list-pedido.component';
 import { NewPedidoComponent } from './new-pedido/new-pedido.component';
 import { ItensComponent } from './itens/itens.component';
+import { FecharComponent } from './fechar/fechar.component';
 
 @NgModule({
-  declarations: [ListPedidoComponent, NewPedidoComponent, ItensComponent],
+  declarations: [ListPedidoComponent, NewPedidoComponent, ItensComponent, FecharComponent],
   imports: [
     CommonModule,
     PedidoRoutingModule,
