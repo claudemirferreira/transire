@@ -5,7 +5,7 @@
   <mat-card-content>
     <mat-form-field appearance="fill">
       <mat-label>Tipo de Pedido</mat-label>
-      <mat-select [(ngModel)]="pedido.tipoPedido">
+      <mat-select [(ngModel)]="pedido.tipoPedido" >
         <mat-option *ngFor="let option of listTipo" [value]="option.id">{{
           option.nome
         }}</mat-option>
@@ -14,19 +14,19 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Nome</mat-label>
-      <input matInput placeholder="nome" [ngModel]="pedido.nome" />
+      <input matInput placeholder="nome" [(ngModel)]="pedido.nome" />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Telefone</mat-label>
-      <input matInput placeholder="telefone" [ngModel]="pedido.telefone" />
+      <input matInput placeholder="telefone" [(ngModel)]="pedido.telefone" />
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="example-full-width">
       <mat-label>Endereço</mat-label>
       <textarea class="example-full-width"
         matInput
-        [ngModel]="pedido.endereco"
+        [(ngModel)]="pedido.endereco"
         placeholder="Endereço"
       ></textarea>
     </mat-form-field>
@@ -36,9 +36,13 @@
     <button mat-raised-button color="primary" (click)="salvar()">
       <mat-icon>check_circle</mat-icon>Salvar
     </button>
-    <button mat-button (click)="openDialogItem()" ><mat-icon aria-hidden="false" aria-label="Pesquisar">add_circle</mat-icon>Novo</button>
+    <button mat-button (click)="openDialogItem()" *ngIf="pedido.id>0" >
+      <mat-icon aria-hidden="false" aria-label="Pesquisar">add_circle</mat-icon>Itens
+    </button>
 
-    <button mat-button (click)="openDialogFechar()" ><mat-icon aria-hidden="false" aria-label="Pesquisar">add_circle</mat-icon>Fechar</button>
+    <button mat-button (click)="openDialogFechar()" >
+      <mat-icon aria-hidden="false" aria-label="Pesquisar">payment</mat-icon>Pagamento
+    </button>
 
   </mat-card-actions>
 

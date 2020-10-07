@@ -32,7 +32,7 @@ export class ItensComponent implements OnInit {
     public dialogRef: MatDialogRef<ItensComponent>,
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) public pedido: Pedido) { }
+    @Inject(MAT_DIALOG_DATA) public idPedido: number) { }
 
   ngOnInit(): void {
     this.findByProduto();
@@ -42,7 +42,7 @@ export class ItensComponent implements OnInit {
 
   findByProduto(){
     this.ngxLoader.start();
-    this.service.findByProduto(this.pedido.id).subscribe((responseApi: ResponseApi) => {
+    this.service.findByProduto(this.idPedido).subscribe((responseApi: ResponseApi) => {
       console.log(responseApi['content']);
       this.lista = new MatTableDataSource<Item>(responseApi['content']);
       this.ngxLoader.stop();
@@ -67,7 +67,7 @@ export class ItensComponent implements OnInit {
   incluir(){
 
     this.item = new Item();
-    this.item.idPedido = this.pedido.id;
+    this.item.idPedido = this.idPedido;
     this.item.idProduto = this.produto.id;
     this.item.valor = this.produto.valor;
     this.item.quantidade = this.produto.quantidade;

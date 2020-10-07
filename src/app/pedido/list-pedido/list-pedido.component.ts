@@ -21,7 +21,7 @@ export class ListPedidoComponent implements OnInit {
   pedido : Pedido;
 
   filtroPaginacao = new FiltroPaginacao();
-  displayedColumns = ['id', 'nome', 'valor', 'acoes'];
+  displayedColumns = ['id', 'nome', 'valor', 'tipoPedido', 'acoes'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
