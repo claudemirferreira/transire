@@ -23,6 +23,7 @@ import { ProdutoService } from './produto/produto.service';
 
 import { ClienteService } from './cliente/cliente.service';
 import { VendaService } from './venda/venda.service';
+import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ListVendaComponent } from './venda/list-venda/list-venda.component';
@@ -51,6 +52,7 @@ import { CadastroVendaComponent } from './venda/cadastro-venda/cadastro-venda.co
     GridModule,
     AutocompleteLibModule,
     ToastrModule.forRoot(),
+    PdfJsViewerModule,
 
 
   ],

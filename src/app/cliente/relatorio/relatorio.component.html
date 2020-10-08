@@ -1,0 +1,13 @@
+<h2 class="titulo">Clientes que mais comparam</h2>
+<mat-card style="background-color: #eaeaea">
+
+  <button mat-raised-button (click)="gerarRelatorio()">
+    <i class="material-icons">print</i>imprimir
+  </button>
+
+</mat-card>
+<ngx-ui-loader></ngx-ui-loader>
+
+<div style="height: 600px">
+  <ng2-pdfjs-viewer #pdfViewer></ng2-pdfjs-viewer>
+</div>

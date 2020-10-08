@@ -6,6 +6,8 @@ import { ClienteRoutingModule } from './cliente-routing.module';
 import { FormsModule }   from '@angular/forms';
 import { MaterialModule } from '../components/material/material.module';
 import { CurrencyMaskInputMode, NgxCurrencyModule } from "ngx-currency";
+import { RelatorioComponent } from './relatorio/relatorio.component';
+import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 
 export const customCurrencyMaskConfig = {
   align: "right",
@@ -23,12 +25,13 @@ export const customCurrencyMaskConfig = {
 };
 
 @NgModule({
-  declarations: [CadastroClienteComponent, ListClienteComponent],
+  declarations: [CadastroClienteComponent, ListClienteComponent, RelatorioComponent],
   imports: [
     CommonModule,
     ClienteRoutingModule,
     MaterialModule,
     FormsModule,
+    PdfJsViewerModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ]
 })

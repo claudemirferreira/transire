@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { CrudService } from '../shared/crud-service';
 import { FiltroPaginacao } from '../shared/filtro.paginacao';
@@ -26,6 +27,15 @@ export class ClienteService extends CrudService<Cliente>{
   pesquisar(filtro: FiltroPaginacao) {
     console.log(`${this.API_URL}pesquisa`);
     return this.http.post(`${this.API_URL}pesquisar`, filtro);
+  }
+
+  geraPdf() {
+    return this.http.get(`${this.API_URL}/pdf/`, { responseType: 'blob' })
+      .pipe(
+        map((result: any) => {
+          return result;
+        })
+      );
   }
 
 }

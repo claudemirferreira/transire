@@ -59,6 +59,7 @@ export class FecharVendaComponent implements OnInit {
 
   fecharVenda(){
     console.log(this.venda);
+    this.venda.cliente=this.cliente;
     return this.service.save(this.venda).subscribe(
       (responseApi: ResponseApi) => {
         this.venda = responseApi['content'];
