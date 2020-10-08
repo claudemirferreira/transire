@@ -14,18 +14,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
 import { ProdutoModule } from './produto/produto.module';
-import { PedidoModule } from './pedido/pedido.module';
 import { ClienteModule } from './cliente/cliente.module';
 import { VendaModule } from './venda/venda.module';
-import { EntregadorModule } from './entregador/entregador.module';
 import { ToastrModule } from 'ngx-toastr';
 
 import { CrudService } from './shared/crud-service';
 import { ProdutoService } from './produto/produto.service';
-import { PedidoService } from './pedido/pedido.service';
+
 import { ClienteService } from './cliente/cliente.service';
 import { VendaService } from './venda/venda.service';
-import { ItensService } from './pedido/itens.service';
 
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ListVendaComponent } from './venda/list-venda/list-venda.component';
@@ -44,11 +41,9 @@ import { CadastroVendaComponent } from './venda/cadastro-venda/cadastro-venda.co
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    EntregadorModule,
     ProdutoModule,
     ClienteModule,
     VendaModule,
-    PedidoModule,
     SharedModule,
     NgxUiLoaderModule,
     FlexLayoutModule,
@@ -62,10 +57,8 @@ import { CadastroVendaComponent } from './venda/cadastro-venda/cadastro-venda.co
   providers: [
     CrudService,
     ProdutoService,
-    PedidoService,
     ClienteService,
     VendaService,
-    ItensService,
   ],
   bootstrap: [AppComponent]
 })
