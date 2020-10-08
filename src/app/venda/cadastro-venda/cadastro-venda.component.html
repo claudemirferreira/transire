@@ -7,14 +7,6 @@
       <mat-card-title>Cadastro de Vendas</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <mat-form-field appearance="fill">
-        <mat-label>Cliente</mat-label>
-        <mat-select name="cliente">
-          <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
-            {{ cliente.nome }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Produto</mat-label>

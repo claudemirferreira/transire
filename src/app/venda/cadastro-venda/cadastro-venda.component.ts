@@ -20,7 +20,6 @@ import { FecharVendaComponent } from '../fechar-venda/fechar-venda.component';
   styleUrls: ['./cadastro-venda.component.css'],
 })
 export class CadastroVendaComponent implements OnInit {
-  clientes: Cliente[];
   produtos: Produto[];
   produto: Produto;
 
@@ -49,25 +48,13 @@ export class CadastroVendaComponent implements OnInit {
     this.venda = new Venda();
     this.vendaProduto = new VendaProduto();
     this.produto = new Produto();
-    this.listaClientes();
     this.listaProdutos();
-  }
-
-  listaClientes() {
-    this.clienteService.listarTodos().subscribe(
-      (responseApi: ResponseApi) => {
-        this.clientes = responseApi['content'];
-        console.log(JSON.stringify(this.clientes));
-      },
-      (err) => {}
-    );
   }
 
   listaProdutos() {
     this.produtoService.listarTodos().subscribe(
       (responseApi: ResponseApi) => {
         this.produtos = responseApi['content'];
-        console.log(JSON.stringify(this.clientes));
       },
       (err) => {}
     );
