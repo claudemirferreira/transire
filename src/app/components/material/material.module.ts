@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -53,7 +52,6 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     MatGridListModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    NgxMatSelectSearchModule,
     ToastrModule.forRoot({ positionClass: 'inline' }),
     NgxUiLoaderModule,
     ToastrModule,
@@ -86,7 +84,6 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     MatMenuModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    NgxMatSelectSearchModule,
     NgxUiLoaderModule,
     MatGridListModule,
     MatAutocompleteModule,

@@ -6,7 +6,6 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ResponseApi } from 'src/app/shared/response-api';
 import { Pedido } from '../pedido';
 import { PedidoService } from '../pedido.service';
-import EnumTipoPagamento from '../../shared/enum/EnumStatusPagamento';
 
 @Component({
   selector: 'app-fechar',
@@ -49,7 +48,6 @@ export class FecharComponent implements OnInit {
 
   efetuarPagamento(){
 
-    EnumTipoPagamento.
     console.log(JSON.stringify(this.pedido));
 
   }
