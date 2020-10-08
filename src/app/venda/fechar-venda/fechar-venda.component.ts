@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
@@ -28,6 +28,8 @@ export class FecharVendaComponent implements OnInit {
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrService,
     private route: ActivatedRoute,
+    private router: Router,
+    public dialogRef: MatDialogRef<FecharVendaComponent>,
     @Inject(MAT_DIALOG_DATA) public idVenda: number) { }
 
   ngOnInit(): void {
@@ -53,6 +55,23 @@ export class FecharVendaComponent implements OnInit {
       },
       (err) => {}
     );
+  }
+
+  fecharVenda(){
+    console.log(this.venda);
+    return this.service.save(this.venda).subscribe(
+      (responseApi: ResponseApi) => {
+        this.venda = responseApi['content'];
+        console.log(JSON.stringify(this.venda));
+        this.toastr.success('Operação realizada com sucesso!', 'Sucesso');
+        this.dialogRef.close();
+      },
+      (error) => {
+        this.toastr.error('Ocorreu um error!', 'Error');
+        console.log(JSON.stringify(error));
+      }
+    );
+
   }
 
 }

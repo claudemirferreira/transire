@@ -16,7 +16,6 @@
         </mat-select>
       </mat-form-field>
 
-
       <mat-form-field appearance="fill">
         <mat-label>Total</mat-label>
         <input
@@ -31,8 +30,8 @@
 
     <mat-card-actions>
       <mat-card-actions>
-        <button *ngIf='cliente.id > 0'mat-raised-button color="primary" >
-          Fechar Venda
+        <button *ngIf='cliente.id > 0'mat-raised-button color="primary" (click)="fecharVenda()">
+          Fechar Venda.
         </button>
       </mat-card-actions>
     </mat-card-actions>
